@@ -3,9 +3,9 @@ import { DeltaStatic } from 'quill-delta';
 import { EventType } from '../interfaces/IMessage';
 import { IResources } from '../interfaces/IResources';
 
-/* This file contains HTML for the webview that contains Quill. You can use the es6-string-html, es6-string-css and 
+/* This file contains HTML for the webview that contains Quill. You can use the es6-string-html, es6-string-css and
    es6-string-javascript plugins for VSCode to get syntax highlighting on this file.
-   
+
    We input all EventType.{...} occurrences as variables in the template strings to enable type analysis for the event
    types, since they might be change sensitive. */
 
@@ -14,10 +14,12 @@ export function generateWebViewIndex(
   content: DeltaStatic | undefined,
   options: QuillOptionsStatic
 ) {
-  return encodeURIComponent(/*html*/ `
+  return `
     <!DOCTYPE html>
     <html>
       <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css" integrity="sha384-BdGj8xC2eZkQaxoQ8nSLefg4AV4/AwB3Fj+8SUSo7pnKP6Eoy18liIKTPn9oBYNG" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.js" integrity="sha384-JiKN5O8x9Hhs/UE5cT5AAJqieYlOZbGT3CHws/y97o3ty4R7/O5poG9F3JoiOYw1" crossorigin="anonymous"></script>
         <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0">
         <style>
           html,
@@ -43,20 +45,20 @@ export function generateWebViewIndex(
           }
 
           .quill-wrapper .ql-editor {
-            padding: 11px; 
+            padding: 0px;
             transition: all 0.2s;
           }
 
           .quill-wrapper .ql-container.ql-snow,
           .quill-wrapper .ql-toolbar.ql-snow + .ql-container.ql-snow {
-            border: 2px solid rgba(0,0,0,0.12);
+            border: 0px solid rgba(0,0,0,0.12);
             border-radius: 4px;
             transition: all 0.2s;
           }
 
           .quill-wrapper .ql-container.ql-snow.quill-focus,
           .quill-wrapper .ql-toolbar.ql-snow + .ql-container.ql-snow.quill-focus {
-            border-color: #00b050; 
+            border-color: #00b050;
           }
 
           .quill-wrapper .ql-toolbar.ql-snow {
@@ -150,5 +152,5 @@ export function generateWebViewIndex(
         </script>
       </body>
     </html>
-  `);
+  `;
 }
