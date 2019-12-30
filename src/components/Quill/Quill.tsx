@@ -70,6 +70,8 @@ export class Quill extends React.Component<IProps, IState> {
           <ActivityIndicator size="large" style={this.fullHeightStyle} />
         ) : (
           <this.WebViewComponent
+            showsHorizontalScrollIndicator={false}
+            showsVerticalScrollIndicator={false}
             javaScriptEnabled={true}
             onMessage={this.onMessage}
             ref={this.registerWebView}
