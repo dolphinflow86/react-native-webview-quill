@@ -130,8 +130,7 @@ export class Quill extends React.Component<IProps, IState> {
   }
 
   private onMessage(event: WebViewMessageEvent) {
-    const height = parseInt(event.nativeEvent.data);
-    this.setState({ height: height >= 240 ? 240 : height });
+    this.setState({ height: parseInt(event.nativeEvent.data) });
     try {
       // TODO: Implement only sending delta's to save time on JSON parsing overhead
       //this.processMessage(JSON.parse(event.nativeEvent.data));
