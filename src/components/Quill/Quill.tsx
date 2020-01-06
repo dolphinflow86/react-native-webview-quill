@@ -111,8 +111,12 @@ export class Quill extends React.Component<IProps, IState> {
       ...this.props.options,
     };
 
+    const fontColor =
+      this.props.containerStyle && this.props.containerStyle.width === '100%'
+        ? 'rgb(0,0,0)'
+        : 'rgb(255,255,255)';
     this.setState({
-      html: generateWebViewIndex({ script, styleSheet }, this.props.content, options),
+      html: generateWebViewIndex({ script, styleSheet }, this.props.content, options, fontColor),
     });
   }
 

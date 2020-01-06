@@ -12,7 +12,8 @@ import { IResources } from '../interfaces/IResources';
 export function generateWebViewIndex(
   resources: IResources,
   content: DeltaStatic | undefined,
-  options: QuillOptionsStatic
+  options: QuillOptionsStatic,
+  fontColor: string
 ) {
   return `
     <!DOCTYPE html>
@@ -41,7 +42,8 @@ export function generateWebViewIndex(
 
           .quill-wrapper .ql-container {
             height: auto;
-            font-size: 16px;
+            font-size: 13px;
+            color: ${fontColor}
           }
 
           .quill-wrapper .ql-editor {
