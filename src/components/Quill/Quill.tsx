@@ -9,6 +9,7 @@ import { EventType, IMessage } from './interfaces/IMessage';
 import { generateWebViewIndex } from './resources/generateWebViewIndex';
 
 interface IProps {
+  isMyChat?: boolean;
   accessibilityLabel?: string;
   containerStyle?: ViewStyle;
   content?: DeltaStatic;
@@ -112,7 +113,7 @@ export class Quill extends React.Component<IProps, IState> {
     };
 
     const fontColor =
-      this.props.containerStyle && this.props.containerStyle.width === '100%'
+      this.props.isMyChat === undefined || this.props.isMyChat === false
         ? 'rgb(0,0,0)'
         : 'rgb(255,255,255)';
     this.setState({
